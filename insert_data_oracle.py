@@ -66,8 +66,9 @@ if __name__ == '__main__':
         print >> logfile, error.message
         sys.exit(0)
     tables = ['scutech_one', 'scutech_two', 'scutech_three']
+    
     for i in [0, 1, 2]:
-        j = 1
+        
         create_table_sql = CreateTableSql(tables[i])
         try:
             cur.execute(create_table_sql)
@@ -76,6 +77,7 @@ if __name__ == '__main__':
             error, = e.args
             print >> logfile, "Create table %s raising some Errors: " % tables[i].upper(), error.message
             sys.exit(0)
+        j = 1
         while j <= 1000:
             insert_data_sql = InsertDataSql(tables[i])
             try:
