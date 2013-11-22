@@ -68,7 +68,6 @@ if __name__ == '__main__':
     tables = ['scutech_one', 'scutech_two', 'scutech_three']
     
     for i in [0, 1, 2]:
-        
         create_table_sql = CreateTableSql(tables[i])
         try:
             cur.execute(create_table_sql)
