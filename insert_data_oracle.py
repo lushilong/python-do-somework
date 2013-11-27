@@ -55,9 +55,9 @@ def RandomChar(n):
 
 if __name__ == '__main__':
 
+    start_time = str(time.strftime('%a %b %d %H:%M:%S %Y',time.localtime(time.time())))
     logfile = open("/home/shilong/Temp/insertdata_log.txt", "a")
-    time_now = str(time.strftime('%a %b %d %H:%M:%S %Y',time.localtime(time.time())))
-    print >> logfile, "==================== %s ====================" % time_now
+    print >> logfile, "==================== %s ====================" % start_time
     try:
         conn = cx_Oracle.connect("scutech/dingjia@192.168.88.124:1521/orcl")
         cur = conn.cursor()
@@ -66,8 +66,8 @@ if __name__ == '__main__':
         print >> logfile, error.message
         sys.exit(0)
     tables = ['scutech_one', 'scutech_two', 'scutech_three']
-    
     for i in [0, 1, 2]:
+        j = 1
         create_table_sql = CreateTableSql(tables[i])
         try:
             cur.execute(create_table_sql)
@@ -76,7 +76,6 @@ if __name__ == '__main__':
             error, = e.args
             print >> logfile, "Create table %s raising some Errors: " % tables[i].upper(), error.message
             sys.exit(0)
-        j = 1
         while j <= 1000:
             insert_data_sql = InsertDataSql(tables[i])
             try:
@@ -95,5 +94,7 @@ if __name__ == '__main__':
 
     cur.close()
     conn.close()
-    print >> logfile, "All Table Insert Completed!\n\n"
+    print >> logfile, "All Table Insert Completed!"
+    end_time = str(time.strftime('%a %b %d %H:%M:%S %Y',time.localtime(time.time())))
+    print >> logfile, "==================== %s ====================\n" % end_time
     logfile.close()
