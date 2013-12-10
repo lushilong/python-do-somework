@@ -13,10 +13,10 @@ http_port = 80
 https_port = 443
 mysql_port = 3306
 mysql_passwd = "dingjia"
-ftp_ip = "192.168.88.10"
-ftp_user = "scutech"
-ftp_passwd = "dingjia"
-ftp_dir = "/ftp_product_installer/wddps/2013/2.2.17/"
+ftp_ip = 
+ftp_user = 
+ftp_passwd = 
+ftp_dir = 
 
 
 # This function get the last version package
