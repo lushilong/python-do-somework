@@ -139,7 +139,7 @@ if __name__ == '__main__':
     newestversion = re.findall(r'(?<=-).{12}?(?=\.)', last_package)
     if get_current == "package dbackup-server is not installed":
         print "This System has not installed Dbackup Server!"
-        print "The last version is [ %s ]" % newestversion
+        print "The last version is [ %s ]" % newestversion[0]
         ips = raw_input('Press "ENTER" to install newest Dbackup Server: ')
         print "Downloading Dbackup Server......"
         downloads = AutoDownPackage(last_package)
@@ -157,8 +157,8 @@ if __name__ == '__main__':
             print "Install Dbackup Server fail......"
     else:
         currentversion = re.findall(r'(?<=-).{12}?(?=\.)', get_current)
-        print "There is aready installed [ %s ]" % currentversion
-        print "So the newest version is [ %s ]" % newestversion
+        print "There is aready installed [ %s ]" % currentversion[0]
+        print "So the newest version is [ %s ]" % newestversion[0]
         print "You can do:"
         print "Press '1' --will uninstall Dbackup Server"
         print "Press '2' --will remove and install newest Dbackup Server"
