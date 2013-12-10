@@ -182,6 +182,7 @@ if __name__ == '__main__':
                 print "Dbackup Server uninstall fail......"
                 sys.exit(0)
             if get_input == 2:
+                print "Downloading Dbackup Server......"
                 downloads = AutoDownPackage(last_package)
                 if downloads == 1:
                     print "Can not connect Internet !!!"
