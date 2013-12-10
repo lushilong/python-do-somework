@@ -3,7 +3,7 @@
 # 
 
 
-import os, sys, re, locale, shutil
+import os, sys, re
 from ftplib import FTP
 import socket
 import commands
