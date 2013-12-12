@@ -2,7 +2,7 @@
 #-*-coding=utf-8
 # 
 
-import os, sys, re, locale, shutil
+import os, sys, re
 from ftplib import FTP
 import socket
 import commands
@@ -65,7 +65,7 @@ def GetLastVsersion():
                 last_version_package = i
 
     if package_version == 0:
-        print "Can not match the package......"
+        print "Can not match any packages......"
         sys.exit(0)
     else:
         return last_version_package
