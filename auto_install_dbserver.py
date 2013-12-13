@@ -166,7 +166,7 @@ if __name__ == '__main__':
                 print "Please entry a number !"
         if get_input == 0:
             sys.exit(0)
-        elif get_input == 1 or get_input == 2: 
+        elif get_input in [1, 2]: 
             print "Uninstalling Dbackup Server......"
             if AutoUninstallServer() == 0:
                 print "Dbackup Server uninstall successful !!!"
