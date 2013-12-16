@@ -76,6 +76,7 @@ def GetLastVsersion():
 # define function download last version of Dbackup Agent Package from Ftp
 def AutoDownPackage(package_name):
 
+    print "Downloading Dbackup Server......"
     downloadftp = ConnectFtp() 
     localfile = "/home/serverpackage/" + package_name
     try:
@@ -141,7 +142,6 @@ if __name__ == '__main__':
         print "This System has not installed Dbackup Server!"
         print "The last version is [ %s ]" % newestversion[0]
         ips = raw_input('Press "ENTER" to install newest Dbackup Server: ')
-        print "Downloading Dbackup Server......"
         downloads = AutoDownPackage(last_package)
         if AutoInstallServer(last_package) == 0:
             print "Install Dbackup Server successful !!!"
@@ -174,7 +174,6 @@ if __name__ == '__main__':
                 print "Dbackup Server uninstall fail......"
                 sys.exit(0)
             if get_input == 2:
-                print "Downloading Dbackup Server......"
                 downloads = AutoDownPackage(last_package)
                 print "Installing Dbackup Server......"
                 if AutoInstallServer(last_package) == 0:
