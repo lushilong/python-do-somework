@@ -40,6 +40,7 @@ def ConnectFtp():
         ftp.cwd(ftp_dir)
     except:
         print "Can not open Ftp directory !!!"
+        ftp.quit()
         sys.exit(0)
 
     return ftp
