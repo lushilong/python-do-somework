@@ -59,30 +59,30 @@ if __name__ == '__main__':
     logfile = open("/home/shilong/Temp/insertdata_log.txt", "a")
     print >> logfile, "==================== %s ====================" % start_time
     try:
-        conn = cx_Oracle.connect("scutech/dingjia@192.168.88.124:1521/orcl")
+        conn = cx_Oracle.connect("scutech/dingjia@192.168.88.202:1521/orcl")
         cur = conn.cursor()
     except cx_Oracle.DatabaseError as e:
         error, = e.args
         print >> logfile, error.message
         sys.exit(0)
-    tables = ['scutech_one', 'scutech_two', 'scutech_three']
-    for i in [0, 1, 2]:
+    tables = ['scutech_one', 'scutech_two', 'scutech_three', 'scutech_four', 'scutech_five', 'scutech_six']
+    for t in tables:
         j = 1
-        create_table_sql = CreateTableSql(tables[i])
+        create_table_sql = CreateTableSql(t)
         try:
             cur.execute(create_table_sql)
-            print >> logfile, "Table %s Created!" % tables[i].upper()
+            print >> logfile, "Table %s Created!" % t.upper()
         except cx_Oracle.DatabaseError as e:
             error, = e.args
-            print >> logfile, "Create table %s raising some Errors: " % tables[i].upper(), error.message
+            print >> logfile, "Create table %s raising some Errors: " % t.upper(), error.message
             sys.exit(0)
-        while j <= 1000:
-            insert_data_sql = InsertDataSql(tables[i])
+        while j <= 500:
+            insert_data_sql = InsertDataSql(t)
             try:
                 cur.execute(insert_data_sql)
             except cx_Oracle.DatabaseError as e:
                 error, = e.args
-                print >> logfile, "Insert into table %s raising some Errors: " % tables[i].upper(), error.message
+                print >> logfile, "Insert into table %s raising some Errors: " % t.upper(), error.message
                 break
             if j%1000 == 0:
                 conn.commit()
@@ -90,7 +90,7 @@ if __name__ == '__main__':
             j += 1
 
         conn.commit()
-        print >> logfile, "Table %s has inserted %d records" % (tables[i].upper(), j-1)
+        print >> logfile, "Table %s has inserted %d records" % (t.upper(), j-1)
 
     cur.close()
     conn.close()
