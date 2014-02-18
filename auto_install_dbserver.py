@@ -151,7 +151,7 @@ if __name__ == '__main__':
     else:
         currentversion = re.findall(r'(?<=-).{11,12}?(?=\.)', get_current)
         print "There is aready installed [ %s ]" % currentversion[0]
-        print "So the newest version is [ %s ]" % newestversion[0]
+        print "And the newest version is [ %s ]" % newestversion[0]
         print "You can do:"
         print "Press '1' --will uninstall Dbackup Server"
         print "Press '2' --will remove and install newest Dbackup Server"
