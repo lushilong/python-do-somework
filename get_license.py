@@ -17,9 +17,9 @@ def getLicense(applyCode):
     opener = urllib2.build_opener(cookie_support, urllib2.HTTPHandler)
     urllib2.install_opener(opener)
     
-    loginUrl = "http://192.168.88.100:8889/serial/login"
+    loginUrl = "http://url"
     
-    loginPostData = urllib.urlencode({"username":"lusl","password":"dingjia"})
+    loginPostData = urllib.urlencode({"username":"","password":""})
     loginRequest = urllib2.Request(loginUrl, loginPostData)
     loginRequest.add_header("User-Agent", "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:26.0) Gecko/20100101 Firefox/26.0")
     try:
@@ -33,7 +33,7 @@ def getLicense(applyCode):
         # print e.info()
         # print e.read()
     
-    licenseUrl = "http://192.168.88.100:8889/serial/license"
+    licenseUrl = "http://url"
     licensePostData = OrderedDict((("contract","dfg"),("customer","sd"),("note","sdf"),("type","dbackup4"),("state",1),
         ("useday",60),("code",applyCode)))
     licensePostData["properties"] = [OrderedDict((("name","clientnum"),("value",10))),
