@@ -74,7 +74,9 @@ def getLicense(applyCode):
         # print "-------------------------"
         # print e.info()
         # print e.read()
-
+    loginResponse.close()
+    licenseResponse.close()
+    
 if __name__ == '__main__':
     
     license = getLicense(sys.argv[1]) 
