@@ -65,15 +65,12 @@ def getLicense(applyCode):
     licenseRequest.add_header("User-Agent", "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:26.0) Gecko/20100101 Firefox/26.0")
     try:
         licenseResponse = urllib2.urlopen(licenseRequest)
-        # print licenseResponse.info()
         getLicense = json.loads(licenseResponse.read())
         return getLicense['license']
     except urllib2.HTTPError, e:
         print e.getcode()
         print e.geturl()
-        # print "-------------------------"
-        # print e.info()
-        # print e.read()
+
 
 if __name__ == '__main__':
     
