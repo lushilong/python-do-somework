@@ -18,7 +18,6 @@ def getLicense(applyCode):
     urllib2.install_opener(opener)
     
     loginUrl = "http://url"
-    
     loginPostData = urllib.urlencode({"username":"","password":""})
     loginRequest = urllib2.Request(loginUrl, loginPostData)
     loginRequest.add_header("User-Agent", "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:26.0) Gecko/20100101 Firefox/26.0")
